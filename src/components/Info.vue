@@ -1,7 +1,7 @@
 <template>
   <section>
-    <img :src="url1" alt="./assets/notFound.png" />
-    <img :src="url2" alt="./assets/notFound.png" />
+    <img :src="url1" alt="./assets/notFound.png" width="100" height="100" />
+    <img :src="url2" alt="./assets/notFound.png" width="100" height="100" />
   </section>
 </template>
 

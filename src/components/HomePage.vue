@@ -7,12 +7,18 @@
     <div class="columns">
       <div class="column">
         <b-field class="label" label="Anime 1">
-          <b-input value="Enter the first anime!" v-model="anime1"></b-input>
+          <b-input
+            value="Enter the first anime!"
+            v-model="placeholderAnime1"
+          ></b-input>
         </b-field>
       </div>
       <div class="column">
         <b-field class="label" label="Anime 2">
-          <b-input value="Enter the second anime!" v-model="anime2"></b-input>
+          <b-input
+            value="Enter the second anime!"
+            v-model="placeholderAnime2"
+          ></b-input>
         </b-field>
       </div>
     </div>
@@ -32,23 +38,30 @@ import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 import Info from "./Info.vue";
 Vue.use(Buefy);
-
 export default {
   components: {
     Info,
   },
   data() {
     return {
+      placeholderAnime1: "",
+      placeholderAnime2: "",
       anime1: "",
       anime2: "",
       success: false,
     };
   },
-
   methods: {
     checkComplete() {
-      if (this.anime1.length > 0 && this.anime2.length > 0) {
+      if (
+        this.placeholderAnime1.length > 0 &&
+        this.placeholderAnime2.length > 0
+      ) {
         this.success = true;
+        this.anime1 = this.placeholderAnime1;
+        this.anime2 = this.placeholderAnime2;
+        this.placeholderAnime1 = "";
+        this.placeholderAnime2 = "";
         return this.$buefy.toast.open({
           message: "Yay, just a moment now!",
           type: "is-success",
