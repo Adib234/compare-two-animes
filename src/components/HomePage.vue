@@ -1,33 +1,34 @@
 <template>
-  <section class="hero">
-    <div class="parent-1">
-      <h1 class="title is-1">Compare two animes! :)</h1>
-    </div>
-
-    <div class="columns">
-      <div class="column">
-        <b-field class="label" label="Anime 1">
-          <b-input
-            value="Enter the first anime!"
-            v-model="placeholderAnime1"
-          ></b-input>
-        </b-field>
+  <section>
+    <div class="hero">
+      <div class="parent-1">
+        <h1 class="title is-1">Compare two animes! :)</h1>
       </div>
-      <div class="column">
-        <b-field class="label" label="Anime 2">
-          <b-input
-            value="Enter the second anime!"
-            v-model="placeholderAnime2"
-          ></b-input>
-        </b-field>
+
+      <div class="columns is-mobile">
+        <div class="column">
+          <b-field class="label" label="Anime 1">
+            <b-input
+              value="Enter the first anime!"
+              v-model="placeholderAnime1"
+            ></b-input>
+          </b-field>
+        </div>
+        <div class="column">
+          <b-field class="label" label="Anime 2">
+            <b-input
+              value="Enter the second anime!"
+              v-model="placeholderAnime2"
+            ></b-input>
+          </b-field>
+        </div>
+      </div>
+      <div class="button-spacing is-mobile">
+        <b-button class="button" type="is-primary" @click="checkComplete"
+          >Compare!</b-button
+        >
       </div>
     </div>
-    <div class="button-spacing">
-      <b-button class="button" type="is-primary" @click="checkComplete"
-        >Compare!</b-button
-      >
-    </div>
-
     <Info :anime1="anime1" :anime2="anime2" v-if="success"></Info>
   </section>
 </template>
