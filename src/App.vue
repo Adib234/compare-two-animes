@@ -1,6 +1,12 @@
 <template>
   <div id="app">
     <HomePage />
+    <footer class="footer">
+      <div class="content has-text-centered is-size-5">
+        Made with ❤️, thank you to the community and Jikan API for this
+        projects' success!
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -18,3 +24,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.footer {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  padding: 1rem 8rem 1rem;
+}
+</style>

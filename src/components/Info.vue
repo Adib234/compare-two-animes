@@ -14,17 +14,88 @@
       </div>
     </div>
     <div class="container">
-      <div class="column">
+      <div class="column ">
         <div class="box">
-          <div class="is-size-3">Title: {{ title1 }}</div>
+          <div class="is-size-3"><strong>Title:</strong> {{ title1 }}</div>
+          <div class="is-size-4">
+            <strong>Synopsis:</strong>
+            {{ synopsis1.replace("[Written by MAL Rewrite]", "") }}
+          </div>
+          <table class="table is-bordered is-fullwidth">
+            <tbody>
+              <tr>
+                <th>Episodes</th>
+                <td>{{ episodes1 != null ? episodes1 : "Ongoing" }}</td>
+              </tr>
+              <tr>
+                <th>Duration</th>
+                <td>{{ duration1 }}</td>
+              </tr>
+              <tr>
+                <th>Rating</th>
+                <td>{{ rating1 }}</td>
+              </tr>
+              <tr>
+                <th>Aired</th>
+                <td>{{ aired1["string"] }}</td>
+              </tr>
+              <tr>
+                <th>Score</th>
+                <td>{{ score1 }}</td>
+              </tr>
+              <tr>
+                <th>Favourites</th>
+                <td>{{ favorites1 }}</td>
+              </tr>
+              <tr>
+                <th>Genres</th>
+                <td>{{ genres1.map((genre) => genre.name).toString() }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
+    </div>
 
-      <div class="column">
-        <div class="box">
-          <div class="is-size-3">Title: {{ title2 }}</div>
-          <div class="is-size-5"></div>
+    <div class="column">
+      <div class="box">
+        <div class="is-size-3"><strong>Title:</strong> {{ title2 }}</div>
+        <div class="is-size-4">
+          <strong>Synopsis:</strong>
+          {{ synopsis2.replace("[Written by MAL Rewrite]", "") }}
         </div>
+        <table class="table is-bordered is-fullwidth">
+          <tbody>
+            <tr>
+              <th>Episodes</th>
+              <td>{{ episodes2 != null ? episodes2 : "Ongoing" }}</td>
+            </tr>
+            <tr>
+              <th>Duration</th>
+              <td>{{ duration2 }}</td>
+            </tr>
+            <tr>
+              <th>Rating</th>
+              <td>{{ rating2 }}</td>
+            </tr>
+            <tr>
+              <th>Aired</th>
+              <td>{{ aired2["string"] }}</td>
+            </tr>
+            <tr>
+              <th>Score</th>
+              <td>{{ score2 }}</td>
+            </tr>
+            <tr>
+              <th>Favourites</th>
+              <td>{{ favorites2 }}</td>
+            </tr>
+            <tr>
+              <th>Genres</th>
+              <td>{{ genres2.map((genre) => genre.name).toString() }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -60,10 +131,8 @@ export default {
       aired2: "",
       score1: "",
       score2: "",
-      rank1: "",
-      rank2: "",
-      popularity1: "",
-      popularity2: "",
+      favorites1: "",
+      favorites2: "",
       synopsis1: "",
       synopsis2: "",
       genres1: [],
@@ -98,6 +167,15 @@ export default {
       handler(newVal, oldVal) {
         this.animeFind(newVal, "url1", "image_url");
         this.animeFind(newVal, "title1", "title_english");
+        this.animeFind(newVal, "episodes1", "episodes");
+        this.animeFind(newVal, "synopsis1", "synopsis");
+        this.animeFind(newVal, "duration1", "duration");
+        this.animeFind(newVal, "rating1", "rating");
+        this.animeFind(newVal, "aired1", "aired");
+        this.animeFind(newVal, "score1", "score");
+        this.animeFind(newVal, "favorites1", "favorites");
+        this.animeFind(newVal, "genres1", "genres");
+        // genres1.forEach((genre) => genre["anime"]).toString();
       },
     },
     anime2: {
@@ -106,6 +184,21 @@ export default {
       handler(newVal, oldVal) {
         this.animeFind(newVal, "url2", "image_url");
         this.animeFind(newVal, "title2", "title_english");
+        this.animeFind(newVal, "episodes2", "episodes");
+        this.animeFind(newVal, "synopsis2", "synopsis");
+        this.animeFind(newVal, "duration2", "duration");
+        this.animeFind(newVal, "rating2", "rating");
+        this.animeFind(newVal, "aired2", "aired");
+        this.animeFind(newVal, "score2", "score");
+        this.animeFind(newVal, "favorites2", "favorites");
+        this.animeFind(newVal, "genres2", "genres");
+
+        // genres1: [],
+        // genres2: [],
+        // openingTheme1: [],
+        // openingTheme2: [],
+        // endingTheme1: [],
+        // endingTheme2: [],
       },
     },
   },

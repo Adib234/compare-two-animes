@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="section1">
     <div class="hero">
       <div class="parent-1">
         <h1 class="title is-1">Compare two animes! :)</h1>
