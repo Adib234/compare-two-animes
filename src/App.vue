@@ -31,6 +31,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
+  background-color: aquamarine;
 
   padding: 1rem 8rem 1rem;
 }

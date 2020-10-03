@@ -16,6 +16,19 @@
     <div class="container">
       <div class="column ">
         <div class="box">
+          <div class="video">
+            <iframe
+              width="420"
+              height="315"
+              :src="trailerUrl1"
+              allowfullscreen="allowfullscreen"
+              mozallowfullscreen="mozallowfullscreen"
+              msallowfullscreen="msallowfullscreen"
+              oallowfullscreen="oallowfullscreen"
+              webkitallowfullscreen="webkitallowfullscreen"
+            >
+            </iframe>
+          </div>
           <div class="is-size-3"><strong>Title:</strong> {{ title1 }}</div>
           <div class="is-size-4">
             <strong>Synopsis:</strong>
@@ -55,47 +68,60 @@
           </table>
         </div>
       </div>
-    </div>
 
-    <div class="column">
-      <div class="box">
-        <div class="is-size-3"><strong>Title:</strong> {{ title2 }}</div>
-        <div class="is-size-4">
-          <strong>Synopsis:</strong>
-          {{ synopsis2.replace("[Written by MAL Rewrite]", "") }}
+      <div class="column">
+        <div class="box">
+          <div class="video">
+            <iframe
+              width="420"
+              height="315"
+              :src="trailerUrl2"
+              allowfullscreen="allowfullscreen"
+              mozallowfullscreen="mozallowfullscreen"
+              msallowfullscreen="msallowfullscreen"
+              oallowfullscreen="oallowfullscreen"
+              webkitallowfullscreen="webkitallowfullscreen"
+            >
+            </iframe>
+          </div>
+          <div class="is-size-3"><strong>Title:</strong> {{ title2 }}</div>
+          <div class="is-size-4">
+            <strong>Synopsis:</strong>
+            {{ synopsis2.replace("[Written by MAL Rewrite]", "") }}
+          </div>
+          <table class="table is-bordered is-fullwidth">
+            <tbody>
+              <tr>
+                <th>Episodes</th>
+                <td>{{ episodes2 != null ? episodes2 : "Ongoing" }}</td>
+              </tr>
+              <tr>
+                <th>Duration</th>
+                <td>{{ duration2 }}</td>
+              </tr>
+              <tr>
+                <th>Rating</th>
+                <td>{{ rating2 }}</td>
+              </tr>
+              <tr>
+                <th>Aired</th>
+                <td>{{ aired2["string"] }}</td>
+              </tr>
+              <tr>
+                <th>Score</th>
+                <td>{{ score2 }}</td>
+              </tr>
+              <tr>
+                <th>Favourites</th>
+                <td>{{ favorites2 }}</td>
+              </tr>
+              <tr>
+                <th>Genres</th>
+                <td>{{ genres2.map((genre) => genre.name).toString() }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <table class="table is-bordered is-fullwidth">
-          <tbody>
-            <tr>
-              <th>Episodes</th>
-              <td>{{ episodes2 != null ? episodes2 : "Ongoing" }}</td>
-            </tr>
-            <tr>
-              <th>Duration</th>
-              <td>{{ duration2 }}</td>
-            </tr>
-            <tr>
-              <th>Rating</th>
-              <td>{{ rating2 }}</td>
-            </tr>
-            <tr>
-              <th>Aired</th>
-              <td>{{ aired2["string"] }}</td>
-            </tr>
-            <tr>
-              <th>Score</th>
-              <td>{{ score2 }}</td>
-            </tr>
-            <tr>
-              <th>Favourites</th>
-              <td>{{ favorites2 }}</td>
-            </tr>
-            <tr>
-              <th>Genres</th>
-              <td>{{ genres2.map((genre) => genre.name).toString() }}</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </section>
@@ -175,7 +201,7 @@ export default {
         this.animeFind(newVal, "score1", "score");
         this.animeFind(newVal, "favorites1", "favorites");
         this.animeFind(newVal, "genres1", "genres");
-        // genres1.forEach((genre) => genre["anime"]).toString();
+        this.animeFind(newVal, "trailerUrl1", "trailer_url");
       },
     },
     anime2: {
@@ -192,9 +218,8 @@ export default {
         this.animeFind(newVal, "score2", "score");
         this.animeFind(newVal, "favorites2", "favorites");
         this.animeFind(newVal, "genres2", "genres");
+        this.animeFind(newVal, "trailerUrl2", "trailer_url");
 
-        // genres1: [],
-        // genres2: [],
         // openingTheme1: [],
         // openingTheme2: [],
         // endingTheme1: [],
@@ -215,7 +240,14 @@ export default {
 .is-size-3 {
   text-align: center;
 }
+.video {
+  text-align: center;
+}
 .container {
+  justify-content: space-around;
   display: flex;
+}
+.table {
+  margin-top: 2rem;
 }
 </style>
