@@ -227,7 +227,7 @@ export default {
     },
     // getFrameSrc(q) {
     //   q = q.slice(q.indexOf(":") + 1).replace(/['"]+/g, "");
-    //   gapi.client.setApiKey("AIzaSyCaLeKa_J8RXilmX3uhGyrUPtuRK0smA6Q");
+    //   gapi.client.setApiKey("---------------------------------------");
     //   return gapi.client
     //     .load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
     //     .then(
