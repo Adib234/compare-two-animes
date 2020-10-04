@@ -67,6 +67,25 @@
             </tbody>
           </table>
         </div>
+
+        <div class="box">
+          <div class="is-size-2">Opening Theme Songs</div>
+          <ul id="example-1">
+            <li v-for="song in openingTheme1" :key="song">
+              <!-- <iframe :src="getFrameSrc(song)"> </iframe> -->
+              {{ song.slice(song.indexOf(":") + 1).replace(/['"]+/g, "") }}
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <div class="is-size-2">Ending Theme Songs</div>
+          <ul id="example-1">
+            <li v-for="song in endingTheme1" :key="song">
+              <!-- <iframe :src="getFrameSrc(song)"> </iframe> -->
+              {{ song.slice(song.indexOf(":") + 1).replace(/['"]+/g, "") }}
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="column">
@@ -122,12 +141,33 @@
             </tbody>
           </table>
         </div>
+        <div class="box">
+          <div class="is-size-2">Opening Theme Songs</div>
+          <ul id="example-1">
+            <li v-for="song in openingTheme2" :key="song">
+              <!-- <iframe :src="getFrameSrc(song)"> </iframe> -->
+              {{ song.slice(song.indexOf(":") + 1).replace(/['"]+/g, "") }}
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <div class="is-size-2">Ending Theme Songs</div>
+          <ul id="example-1">
+            <li v-for="song in endingTheme2" :key="song">
+              <!-- <iframe :src="getFrameSrc(song)"> </iframe> -->
+              {{ song.slice(song.indexOf(":") + 1).replace(/['"]+/g, "") }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
+<script src="https://apis.google.com/js/api.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 <script>
+/* global gapi */
 import axios from "axios";
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
@@ -167,6 +207,7 @@ export default {
       openingTheme2: [],
       endingTheme1: [],
       endingTheme2: [],
+
       error: "",
     };
   },
@@ -184,6 +225,32 @@ export default {
           this.error = error; // take care of this later
         });
     },
+    // getFrameSrc(q) {
+    //   q = q.slice(q.indexOf(":") + 1).replace(/['"]+/g, "");
+    //   gapi.client.setApiKey("AIzaSyCaLeKa_J8RXilmX3uhGyrUPtuRK0smA6Q");
+    //   return gapi.client
+    //     .load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+    //     .then(
+    //       function() {
+    //         return gapi.client.youtube.search
+    //           .list({
+    //             part: ["snippet"],
+    //             q: q,
+    //           })
+    //           .then(
+    //             function(response) {
+    //               return `https://www.youtube.com/watch?v=${response["result"]["items"]["0"]["id"]["videoId"]}`;
+    //             },
+    //             function(err) {
+    //               console.error("Execute error", err);
+    //             }
+    //           );
+    //       },
+    //       function(err) {
+    //         console.error("Error loading GAPI client for API", err);
+    //       }
+    //     );
+    // },
   },
 
   watch: {
@@ -202,6 +269,8 @@ export default {
         this.animeFind(newVal, "favorites1", "favorites");
         this.animeFind(newVal, "genres1", "genres");
         this.animeFind(newVal, "trailerUrl1", "trailer_url");
+        this.animeFind(newVal, "openingTheme1", "opening_themes");
+        this.animeFind(newVal, "endingTheme1", "ending_themes");
       },
     },
     anime2: {
@@ -219,11 +288,8 @@ export default {
         this.animeFind(newVal, "favorites2", "favorites");
         this.animeFind(newVal, "genres2", "genres");
         this.animeFind(newVal, "trailerUrl2", "trailer_url");
-
-        // openingTheme1: [],
-        // openingTheme2: [],
-        // endingTheme1: [],
-        // endingTheme2: [],
+        this.animeFind(newVal, "openingTheme2", "opening_themes");
+        this.animeFind(newVal, "endingTheme2", "ending_themes");
       },
     },
   },

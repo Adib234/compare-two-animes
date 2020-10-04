@@ -1,5 +1,37 @@
 <template>
   <section class="section1">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <div class="is-size-1">Compare 2 Anime</div>
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Join a chat</strong>
+            </a>
+            <a class="button is-light">
+              Video chat!
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
     <div class="hero">
       <div class="parent-1">
         <h1 class="title is-1">Compare two animes! :)</h1>
@@ -97,9 +129,7 @@ export default {
 .label {
   text-align: center;
 }
-.button {
-  width: 10%;
-}
+
 .button-spacing {
   text-align: center;
 }
