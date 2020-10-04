@@ -2,10 +2,7 @@
   <section class="section1">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <div class="is-size-1">Compare 2 Anime</div>
-        </a>
-
+        <div class="is-size-1">Compare 2 Anime</div>
         <a
           role="button"
           class="navbar-burger burger"

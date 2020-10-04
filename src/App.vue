@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <HomePage />
     <footer class="footer">
       <div class="content has-text-centered is-size-5">
@@ -26,13 +26,19 @@ export default {
 </script>
 
 <style>
+.app {
+  min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .footer {
-  position: relative;
+  position: static;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: aquamarine;
-
   padding: 1rem 8rem 1rem;
 }
 </style>
