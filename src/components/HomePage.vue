@@ -19,11 +19,16 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
-              <strong>Join a chat</strong>
-            </a>
             <a class="button is-light">
-              Video chat!
+              <router-link to="/searchchat">
+                <strong>Join a chat room!</strong>
+              </router-link>
+            </a>
+
+            <a class="button is-light">
+              <router-link to="/searchchat">
+                Video chat!
+              </router-link>
             </a>
           </div>
         </div>
