@@ -5,24 +5,29 @@ import "buefy/dist/buefy.css";
 import VueRouter from "vue-router";
 import SearchChat from "./components/SearchChat.vue";
 import Main from "./components/Main.vue";
+import NotFound from "./components/NotFound.vue";
+import Chat from "./components/Chat.vue";
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/searchchat",
-    name: "searchchat",
-    component: SearchChat,
-  },
-  {
-    path: "/",
-    name: "main",
-    component: Main,
-  },
-];
-
 const router = new VueRouter({
-  routes,
   mode: "history",
+  routes: [
+    {
+      path: "/searchchat",
+      name: "searchchat",
+      component: SearchChat,
+    },
+    {
+      path: "/",
+      name: "main",
+      component: Main,
+    },
+    {
+      path: "*",
+      component: NotFound,
+    },
+    { path: "/chat", component: Chat },
+  ],
 });
 Vue.use(Button);
 Vue.use(Input);

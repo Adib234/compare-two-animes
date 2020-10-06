@@ -296,7 +296,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .tile.is-ancestor {
   display: flex;
   margin-top: 2%;

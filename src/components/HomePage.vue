@@ -116,7 +116,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .title.is-1 {
   text-align: center;
 }
